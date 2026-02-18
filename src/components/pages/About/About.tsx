@@ -1,7 +1,13 @@
-import React from "react";
+import Nav from "../../organisms/Nav/Nav";
+import Footer from "../../organisms/Footer/Footer";
 
 const About = () => {
-  return <div>About</div>;
+  return (
+    <div>
+      <Nav />
+      <Footer />
+    </div>
+  );
 };
 
 export default About;
