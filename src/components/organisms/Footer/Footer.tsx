@@ -1,12 +1,10 @@
-import { FOOTER } from "../../../constants";
+import { FOOTER, LOGO_TITLE } from "../../../constants";
 import "./Footer.css";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   const socialLinks = [
-    {
-      title: "infobao-contact@gmail.com",
-      link: "mailto:infobao-contact@gmail.com",
-    },
     { title: "Instagram", link: "#" },
     { title: "Facebook", link: "#" },
     { title: "Twitter", link: "#" },
@@ -24,7 +22,7 @@ const Footer = () => {
 
   return (
     <footer>
-      <div>
+      <div className="flex-container">
         <div>
           <h3>{FOOTER.COMPANY}</h3>
           <ul>
@@ -41,7 +39,7 @@ const Footer = () => {
           <h3>{FOOTER.LOCATION}</h3>
           <p>{FOOTER.LOCATION_REGION}</p>
           <p>{FOOTER.PHONE_NUMBER}</p>
-          <h3>{FOOTER.PUNCHLINE}</h3>
+          <p className="punchline">{FOOTER.PUNCHLINE}</p>
         </div>
         <div>
           <h3>{FOOTER.GET_IN_TOUCH}</h3>
@@ -57,6 +55,10 @@ const Footer = () => {
             })}
           </ul>
         </div>
+      </div>
+      <div className="copyright">
+        <h3>{LOGO_TITLE}</h3>
+        <p>{currentYear} &copy; All Rights Reserved </p>
       </div>
     </footer>
   );
