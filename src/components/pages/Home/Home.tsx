@@ -1,14 +1,7 @@
-import Footer from "../../organisms/Footer/Footer";
-import Nav from "../../organisms/Nav/Nav";
+import "./Home.css";
 
 const Home = () => {
-  return (
-    <div>
-      Home
-      <Nav />
-      <Footer />
-    </div>
-  );
+  return <div className="home-container">HOME</div>;
 };
 
 export default Home;

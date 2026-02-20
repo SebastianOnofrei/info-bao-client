@@ -1,0 +1,16 @@
+body,
+html,
+#root {
+  margin: 0;
+  height: 100%;
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1; /* Această linie "împinge" footer-ul în jos */
+}

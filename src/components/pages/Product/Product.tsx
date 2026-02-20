@@ -1,14 +1,5 @@
-import Footer from "../../organisms/Footer/Footer";
-import Nav from "../../organisms/Nav/Nav";
-
 const Product = () => {
-  return (
-    <div>
-      Product
-      <Nav />
-      <Footer />
-    </div>
-  );
+  return <div>Product</div>;
 };
 
 export default Product;
