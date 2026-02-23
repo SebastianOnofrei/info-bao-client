@@ -11,6 +11,10 @@ import mask from "../../../assets/mask.png";
 import hairbrush from "../../../assets/hairbrush.png";
 import hairstyling from "../../../assets/hairstyling.png";
 import splitends from "../../../assets/splitends.png";
+import { blogVariants } from "../../../animations/transitions";
+import { motion } from "framer-motion";
+import Nav from "../../organisms/Nav/Nav";
+import Footer from "../../organisms/Footer/Footer";
 
 const Blog = () => {
   const faceBlogs = [
@@ -59,55 +63,66 @@ const Blog = () => {
   ];
 
   return (
-    <div className="blogs-container">
-      <h3>Blogs</h3>
-      <div className="category-container">
-        <h3>Face</h3>
-        <div className="blogs-flex-container">
-          {faceBlogs.map((blog) => {
-            return (
-              <div>
-                <span>{blog.title}</span>
-                <img src={blog.imgUrl} alt="" />
-                <a>More</a>
-              </div>
-            );
-          })}
+    <motion.div
+      variants={blogVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      className="blogs-container"
+    >
+      <Nav />
+      <section className="blogs-section">
+        <h3>Blogs</h3>
+        <div className="category-container">
+          <h3>Face</h3>
+          <div className="blogs-flex-container">
+            {faceBlogs.map((blog) => {
+              return (
+                <div>
+                  <span>{blog.title}</span>
+                  <img src={blog.imgUrl} alt="" />
+                  <a>More</a>
+                </div>
+              );
+            })}
+          </div>
+          <button>More</button>
         </div>
-        <button>More</button>
-      </div>
-      <div className="category-container">
-        <h3>Body</h3>
-        <div className="blogs-flex-container">
-          {bodyBlogs.map((blog) => {
-            return (
-              <div>
-                <span>{blog.title}</span>
-                <img src={blog.imgUrl} alt="" />
+        <div className="category-container">
+          <h3>Body</h3>
+          <div className="blogs-flex-container">
+            {bodyBlogs.map((blog) => {
+              return (
+                <div>
+                  <span>{blog.title}</span>
+                  <img src={blog.imgUrl} alt="" />
 
-                <a>More</a>
-              </div>
-            );
-          })}
+                  <a>More</a>
+                </div>
+              );
+            })}
+          </div>
+          <button>More</button>
         </div>
-        <button>More</button>
-      </div>
-      <div className="category-container">
-        <h3>Hair</h3>
-        <div className="blogs-flex-container">
-          {hairBlogs.map((blog) => {
-            return (
-              <div>
-                <span>{blog.title}</span>
-                <img src={blog.imgUrl} alt={blog.title} />
-                <a>More</a>
-              </div>
-            );
-          })}
+        <div className="category-container">
+          <h3>Hair</h3>
+          <div className="blogs-flex-container">
+            {hairBlogs.map((blog) => {
+              return (
+                <div>
+                  <span>{blog.title}</span>
+                  <img src={blog.imgUrl} alt={blog.title} />
+                  <a>More</a>
+                </div>
+              );
+            })}
+          </div>
+          <button>More</button>
         </div>
-        <button>More</button>
-      </div>
-    </div>
+      </section>
+
+      <Footer />
+    </motion.div>
   );
 };
 

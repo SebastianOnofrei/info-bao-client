@@ -1,4 +1,4 @@
-.about-container {
+.cosmetics-container {
   position: relative;
 
   width: 100%;
@@ -7,7 +7,7 @@
   min-height: 100vh;
 }
 
-.about-section {
+.cosmetics-section {
   flex: 1;
   position: relative;
   overflow: hidden;

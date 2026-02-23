@@ -1,5 +1,6 @@
-import { lazy, Suspense } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { lazy } from "react";
+import { AnimatePresence } from "framer-motion";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Nav from "./components/organisms/Nav/Nav";
 import Footer from "./components/organisms/Footer/Footer";
 import "./App.css";
@@ -12,26 +13,21 @@ const Cosmetics = lazy(() => import("./components/pages/Cosmetics/Cosmetics"));
 const Product = lazy(() => import("./components/pages/Product/Product"));
 
 function App() {
-  return (
-    <BrowserRouter>
-      <div className="app-wrapper">
-        <Nav />
+  const location = useLocation();
 
-        <main className="main-content">
-          <Suspense fallback={<div>Loading...</div>}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/cosmetics" element={<Cosmetics />} />
-              <Route path="/product" element={<Product />} />
-            </Routes>
-          </Suspense>
-        </main>
-        <Footer />
-      </div>
-    </BrowserRouter>
+  return (
+    <main className="main-content">
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/cosmetics" element={<Cosmetics />} />
+          <Route path="/product" element={<Product />} />
+        </Routes>
+      </AnimatePresence>
+    </main>
   );
 }
 
